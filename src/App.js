@@ -1,6 +1,6 @@
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
-import SecondaryNavigation from './components/secondaryNavigation/SecondartNavigation';
+import SecondaryNavigation from './components/secondaryNavigation/SecondaryNavigation';
 
 function App() {
   return (
@@ -10,7 +10,6 @@ function App() {
     heading="Page name"
     search="block"
     />
-    <Navigation/>
     </>
   );
 }
