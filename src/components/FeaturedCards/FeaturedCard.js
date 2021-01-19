@@ -13,6 +13,7 @@ function FeaturedCard (props) {
                 <h1 className="featuredCardHeading">{ props.heading }</h1>
                 <p className="featuredCardDesc">{ props.desc }</p>
             </div>
+            <div className="featuredCardFade"></div>
         </article>
     )
 }
