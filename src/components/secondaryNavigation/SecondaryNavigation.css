@@ -1,0 +1,29 @@
+.secondaryNavigation {
+    display: grid;
+    justify-content: space-between;
+    padding: 0 30px;
+    align-items: center;
+    height: 10vh;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: "arrow heading search";
+}
+
+.secondaryNavigationHeading {
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+    grid-area: heading;
+}
+
+.secondaryNavigationHeadingWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.secondaryNavigationSearch {
+    display: flex;
+    justify-content: flex-end;
+}
