@@ -1,4 +1,5 @@
 import FeaturedCard from "../../components/FeaturedCards/FeaturedCard";
+import PageHeading from "../../components/pageHeading/pageHeading";
 import SecondaryNavigation from "../../components/secondaryNavigation/SecondaryNavigation";
 import "./featured.css";
 
@@ -9,7 +10,7 @@ function Featured () {
         heading="Featured"
         />
         <header className ="featuredHeader">
-            <h1 className="featuredHeading">Featured</h1>
+            <PageHeading>Featured</PageHeading>
         </header>
         <section className="featuredMain">
             <FeaturedCard

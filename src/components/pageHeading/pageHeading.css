@@ -1,0 +1,9 @@
+.pageHeading {
+    width: fit-content;
+    font-size: 32px;
+    background: linear-gradient(to right, #EE0979, #FF6A00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
