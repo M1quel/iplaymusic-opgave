@@ -1,15 +1,17 @@
+import { Router } from '@reach/router';
 import './App.css';
+import FeaturedCard from './components/FeaturedCards/FeaturedCard';
 import Navigation from './components/Navigation/Navigation';
-import SecondaryNavigation from './components/secondaryNavigation/SecondaryNavigation';
+import Featured from './pages/featured/Featured';
 
 function App() {
   return (
     <>
-    <SecondaryNavigation
-    arrow="block"
-    heading="Page name"
-    search="block"
-    />
+    <Router>
+      <Featured path="/"/>
+
+    </Router>
+    <Navigation/>
     </>
   );
 }
