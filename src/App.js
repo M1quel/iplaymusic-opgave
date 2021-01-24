@@ -1,15 +1,11 @@
 import './App.css';
-import Navigation from './components/Navigation/Navigation';
-import SecondaryNavigation from './components/secondaryNavigation/SecondaryNavigation';
-
+import Albums from './pages/albums/Albums';
+import Navigation from "./components/Navigation/Navigation";
 function App() {
   return (
     <>
-    <SecondaryNavigation
-    arrow="block"
-    heading="Page name"
-    search="block"
-    />
+      <Albums/>
+      <Navigation/>
     </>
   );
 }
