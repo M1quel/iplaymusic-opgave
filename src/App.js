@@ -4,12 +4,24 @@ import Albums from './pages/albums/Albums';
 import Navigation from './components/Navigation/Navigation';
 import PageHeading from './components/pageHeading/pageHeading';
 import Featured from './pages/featured/Featured';
+import AlbumDetails from './pages/AlbumDetails/AlbumDetails';
 
 
 function App() {
+  
+  var hashes = [
+    "hej",
+    "Med",
+    "Dig"
+  ]
   return (
     <>
-    <Categories/>
+    <AlbumDetails
+    hashes = { hashes }
+    heading = "Old Town Road"
+    songNum = "12"
+    />
+    <Navigation/>
     </>
   );
 }
