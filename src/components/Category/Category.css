@@ -1,0 +1,76 @@
+.categoryLabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    padding: 0 25px;
+    border-radius: 8px;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+.categoryHeading {
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.categoryLabel .label span {
+    display: block;
+    height: 5px;
+    width: 5px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+
+.categoryLabel .label {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.underCatList {
+    height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.underCat a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.underCat {
+    padding: 0 20px;
+}
+.underCat p {
+    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: 300;
+}
+.underCat i {
+    font-size: 15px;
+    color: #341931;
+}
+
+
+input[type=checkbox]:checked ~ .underCatList {
+    height: fit-content;
+    padding: 25px 0;
+}
+
+input[type=checkbox]:checked ~ .categoryLabel .label span:first-of-type {
+    transform: translateX(10px);
+}
+input[type=checkbox]:checked ~ .categoryLabel .label span:nth-of-type(2) {
+    height: 7px;
+    width: 7px;
+}
+input[type=checkbox]:checked ~ .categoryLabel .label span:last-of-type {
+    transform: translateX(-10px);
+}
