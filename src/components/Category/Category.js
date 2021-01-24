@@ -2,12 +2,13 @@ import "./Category.css";
 
 function Category (props) {
     var labelStyling = {
-        "background-color": props.bgcolor
+        "backgroundColor": props.bgcolor
     }
     var underCats = props.underCats;
     return(
         <article className="category">
-            <label style={ labelStyling } className="categoryLabel" htmlFor="check">
+            <input type="checkbox" name="check" id={props.heading + "check"}/>
+            <label style={ labelStyling } className="categoryLabel" htmlFor={ props.heading + "check" }>
                 <h1 className="categoryHeading">{props.heading}</h1>
                 <div className="label">
                     <span></span>
@@ -15,10 +16,16 @@ function Category (props) {
                     <span></span>
                 </div>
             </label>
-            <input type="checkbox" name="check" id="check"/>
             <ul className="underCatList">
                 {underCats.map(function(cat) {
-				    return <li> { cat } </li>
+				    return (
+                        <li className="underCat">
+                            <a href="#">
+                                <p>{cat}</p>
+                                <i className="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    )
 			    })}
             </ul>
         </article>

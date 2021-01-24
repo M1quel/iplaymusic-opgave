@@ -21,11 +21,23 @@ function Categories () {
             <PageHeading>Categories</PageHeading>
         </header>
 
-        <Category
-        heading = "Blues"
-        underCats = { underCats }
-        bgcolor="lightblue"
-        />
+        <div className="categoriesWrapper">
+            <Category
+            heading = "Blues"
+            underCats = { underCats }
+            bgcolor="lightblue"
+            />
+            <Category
+            heading = "Alternative"
+            underCats = { underCats }
+            bgcolor="red"
+            />
+            <Category
+            heading = "Classical"
+            underCats = { underCats }
+            bgcolor="hotpink"
+            />
+        </div>
         <Navigation/>
         </>
 

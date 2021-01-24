@@ -5,12 +5,12 @@ function SecondaryNavigation (props) {
 
     var arrowStyling = {
         "display": props.arrow,
-        "grid-area": "arrow"
+        "gridArea": "arrow"
     }
         
     var searchStyling = {
         "display": props.search,
-        "grid-area": "search"
+        "gridArea": "search"
     }
     return (
         <nav className="secondaryNavigation">

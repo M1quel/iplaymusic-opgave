@@ -1,3 +1,9 @@
 .categoriesHeader {
     margin: 0 30px;
 }
+.categoriesWrapper {
+    margin: 30px 25px 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
