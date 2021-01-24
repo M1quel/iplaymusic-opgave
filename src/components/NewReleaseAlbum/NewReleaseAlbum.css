@@ -1,0 +1,25 @@
+.newReleaseAlbum {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.newReleaseAlbumDesc {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.newReleaseAlbumHeading {
+    font-size: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+.newReleaseAlbumArtist{
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+.newReleaseAlbumSongNum {
+    font-size: 12px;
+    font-weight: lighter;
+}

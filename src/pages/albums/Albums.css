@@ -1,0 +1,73 @@
+.albumsHeading {
+    width: fit-content;
+    font-size: 32px;
+    background: linear-gradient(to left, #FF6A00, #EE0979);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+.albumsHeader {
+    margin: 0 30px 35px 30px;
+}
+
+.featuredAlbums {
+    margin-bottom: 35px;
+}
+
+
+
+.featuredAlbumsHeader {
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.featuredAlbumsWrapper {
+    padding: 0 30px;
+    display: flex;
+    overflow: scroll;
+    gap: 30px;
+}
+
+.featuredAlbumsHeading {
+    font-size: 15px;
+    font-weight: bold;
+    color: #341931;
+}
+.viewAllFeatured {
+    font-size: 15px;
+    text-decoration: none;
+    color: #FF1168;
+    font-weight: lighter;
+}
+
+
+.newAlbumsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.newAlbumWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 0 30px;
+    overflow: scroll;
+    gap: 20px;
+}
+
+.newAlbumsHeading {
+    font-size: 15px;
+    font-weight: bold;
+    color: #341931;
+}
+.viewAllNew {
+    font-size: 15px;
+    text-decoration: none;
+    color: #FF1168;
+    font-weight: lighter;
+}
