@@ -1,7 +1,6 @@
 .secondaryNavigation {
     display: grid;
     justify-content: space-between;
-    padding: 0 30px;
     align-items: center;
     height: 10vh;
     grid-template-columns: 1fr auto 1fr;
