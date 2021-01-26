@@ -6,6 +6,7 @@ import PageHeading from './components/pageHeading/pageHeading';
 import Featured from './pages/featured/Featured';
 import AlbumDetails from './pages/AlbumDetails/AlbumDetails';
 import PlayLists from './pages/Playlists/PlayLists';
+import Player from './pages/Player/Player';
 
 
 function App() {
@@ -59,10 +60,13 @@ function App() {
   ]
   return (
     <>
-    <PlayLists
-      playlists = {playlists}
+    <Player
+    heading="Hej med dig"
+    artist="Hej med dig 2"
+    artistImg="https://via.placeholder.com/300"
+    songSrc= "./testSong.flac"
+    bgImg="https://via.placeholder.com/400x800"
     />
-    <Navigation/>
     </>
   );
 }
