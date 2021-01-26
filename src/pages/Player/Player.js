@@ -5,11 +5,31 @@ import React, { useEffect } from "react";
 function Player (props) {
     useEffect(function() {
         var audio = document.querySelector(".dinMor");
-        console.log(audio.currentTime)
+        if(!audio.currentTime){
+            document.querySelector(".playerCurrentTime").innerText = "0";
+        }
         audio.addEventListener("timeupdate", function () {
-            console.log(Math.floor(audio.currentTime))
+            document.querySelector(".playerCurrentTime").innerText = Math.floor(audio.currentTime)
         })
+
+
+        // play music
     }, []);
+    function playPause () {
+        let audio = document.querySelector(".dinMor");
+        let playBtn = document.querySelector(".playerPlay");
+        let pauseBtn = document.querySelector(".playerPause");
+        if(playBtn) {
+            playBtn.classList.replace("playerPlay", "playerPause")
+            playBtn.classList.replace("fa-play", "fa-pause")
+            audio.play()
+        }
+        if (pauseBtn) {
+            pauseBtn.classList.replace("playerPause", "playerPlay")
+            pauseBtn.classList.replace("fa-pause", "fa-play")
+            audio.pause()
+        }
+    }
     var pageStyling = {
         "backgroundImage": "url(" + props.bgImg + ")"
     }
@@ -21,7 +41,6 @@ function Player (props) {
             search="none"
             />
             <section className="playerArtistImgSection">
-                {/* profile */}
                 <div className="artistImgWrapper">
                     <img className="playerArtistImg" src={props.artistImg} alt=""/>
                 </div>
@@ -31,20 +50,21 @@ function Player (props) {
                     <h1 className="playerSongName">{props.heading}</h1>
                     <p className="playerArtist">{props.artist}</p>
                 </div>
-                <div>
-                    <audio controlsList="nodownload" className="dinMor" src={ props.songSrc } controls></audio>
-                    <p>CURRENTTIME</p>
-                    <p>TOTALTIME</p>
+                <div className="playerTimeline">
+                    <audio id="playerSong" controlsList="nodownload" className="dinMor" src={ props.songSrc } controls></audio>
+                    <div className="playerTimes">
+                        <p className="playerCurrentTime"></p>
+                        <p className="playerTotalTime">{ props.songDuration }</p>
+                    </div>
                 </div>
                 <div className="controlsWrapper">
-                    <i className="fas fa-step-backward"></i>
-                    <i className="fas fa-backward"></i>
-                    <i className="fas fa-play"></i>
-                    <i className="fas fa-forward"></i>
-                    <i className="fas fa-step-forward"></i>
+                    <i className="fas fa-step-backward otherControls"></i>
+                    <i className="fas fa-backward otherControls"></i>
+                    <i onClick={playPause} className="fas fa-play playerPlay"></i>
+                    <i className="fas fa-forward otherControls"></i>
+                    <i className="fas fa-step-forward otherControls"></i>
                 </div>
             </section>
-            <h1 ></h1>
         </section>
         
     )

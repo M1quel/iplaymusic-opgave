@@ -7,6 +7,7 @@ import Featured from './pages/featured/Featured';
 import AlbumDetails from './pages/AlbumDetails/AlbumDetails';
 import PlayLists from './pages/Playlists/PlayLists';
 import Player from './pages/Player/Player';
+import { Router } from '@reach/router';
 
 
 function App() {
@@ -60,13 +61,19 @@ function App() {
   ]
   return (
     <>
-    <Player
-    heading="Hej med dig"
-    artist="Hej med dig 2"
-    artistImg="https://via.placeholder.com/300"
-    songSrc= "./testSong.flac"
-    bgImg="https://via.placeholder.com/400x800"
-    />
+    <Router>
+      <Featured path="/"/>
+      <Player path="/player"
+      heading="Hej med dig"
+      artist="Hej med dig 2"
+      artistImg="https://via.placeholder.com/300"
+      songSrc= "./testSong.flac"
+      bgImg="https://via.placeholder.com/400x800"
+      songDuration="3:50"
+      />
+      <Categories path="/find"/>
+    </Router>
+    <Navigation/>
     </>
   );
 }
