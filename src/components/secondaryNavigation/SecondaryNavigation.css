@@ -1,4 +1,5 @@
 .secondaryNavigation {
+    width: 100%;
     display: grid;
     justify-content: space-between;
     align-items: center;
@@ -13,7 +14,11 @@
     text-transform: uppercase;
     grid-area: heading;
 }
-
+.secondaryNavigationBackBtn {
+    background-color: transparent;
+    display: flex;
+    width: fit-content;
+}
 .secondaryNavigationHeadingWrapper {
     display: flex;
     justify-content: center;
