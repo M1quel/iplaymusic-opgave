@@ -2,8 +2,24 @@ import FeaturedCard from "../../components/FeaturedCards/FeaturedCard";
 import PageHeading from "../../components/pageHeading/pageHeading";
 import SecondaryNavigation from "../../components/secondaryNavigation/SecondaryNavigation";
 import "./featured.css";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import TokenContext from "../../TokenContext";
 
 function Featured () {
+
+    var [token] = useContext(TokenContext);
+	var [content, setContent] = useState({});
+
+	useEffect(function() {
+        axios.get("https://api.spotify.com/v1/browse/featured-playlists", {
+			headers: {
+				"Authorization": "Bearer " + token.access_token
+			}
+		})
+		.then(response => setContent(response.data));
+	}, [token, setContent]);
+    console.log(content)
     return (
         <>
         <header className ="featuredHeader">
@@ -13,11 +29,14 @@ function Featured () {
             <PageHeading>Featured</PageHeading>
         </header>
         <section className="featuredMain">
-            <FeaturedCard
-            heading="Hej med dig"
-            desc="Hej med dig 2"
-            img="https://via.placeholder.com/100"
-            />
+            {content.playlists && content.playlists.items.map(function (playlist) {
+                return (<FeaturedCard
+                heading = {playlist.name}
+                desc = {playlist.type}
+                img = {playlist.images[0].url}
+                
+                />)
+            })}
         </section>
         </>
     )

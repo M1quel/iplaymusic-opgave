@@ -1,12 +1,39 @@
 import "./Category.css";
-
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import TokenContext from "../../TokenContext";
 function Category (props) {
+    
+    var [token] = useContext(TokenContext);
+    var [content, setContent] = useState({});
+
+	useEffect(function() {
+		axios.get(props.href + "/playlists", {
+			headers: {
+				"Authorization": "Bearer " + token.access_token
+			}
+		})
+		.then(response => {
+            setContent(response.data)
+
+        })
+        .catch(function (error) {
+            if(error) {
+                return;
+            }
+        });
+    }, [token, setContent]);
+    
+    
+    
+    
+    
     var labelStyling = {
         "backgroundColor": props.bgcolor
     }
-    var underCats = props.underCats;
+
     return(
-        <article className="category">
+        <article  className="category">
             <input type="checkbox" name="check" id={props.heading + "check"}/>
             <label style={ labelStyling } className="categoryLabel" htmlFor={ props.heading + "check" }>
                 <h1 className="categoryHeading">{props.heading}</h1>
@@ -17,13 +44,14 @@ function Category (props) {
                 </div>
             </label>
             <ul className="underCatList">
-                {underCats.map(function(cat) {
+                {content.playlists && content.playlists.items.map(function(category, index) {
+                    console.log(category)
 				    return (
-                        <li className="underCat">
-                            <a href="#">
-                                <p>{cat}</p>
+                        <li className="underCat" key={index}>
+                            <Link to="/">
+                                <p>{category.name}</p>
                                 <i className="fas fa-chevron-right"></i>
-                            </a>
+                            </Link>
                         </li>
                     )
 			    })}

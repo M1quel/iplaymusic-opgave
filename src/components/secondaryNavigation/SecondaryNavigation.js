@@ -14,6 +14,7 @@ function SecondaryNavigation (props) {
     }
     return (
         <nav className="secondaryNavigation">
+
             <button style={ arrowStyling } onClick={() => window.history.back()} className="secondaryNavigationBackBtn">
                 <i className="fas fa-chevron-left"></i>
             </button>

@@ -9,72 +9,25 @@ import PlayLists from './pages/Playlists/PlayLists';
 import Player from './pages/Player/Player';
 import { Router } from '@reach/router';
 
+import { Router } from "@reach/router";
+import Login from "./pages/Login/Login";
+import Callback from "./pages/Callback/Callback";
+import './App.css';
+import TokenContext from "./TokenContext";
+import { useState } from "react";
 
 function App() {
-
-  var playlists = [
-    {
-      "id": "156452",
-      "playlistName": "Top 50 Rock Ballads",
-      "playListImg": "https://via.placeholder.com/200",
-      "songs": [
-        {
-          "heading": "Old Town Road",
-          "artist": "Billy Ray Cyrus",
-          "playTime": "3:58"
-        },
-        {
-          "heading": "Old Town Road",
-          "artist": "Billy Ray Cyrus",
-          "playTime": "3:58"
-        },
-        {
-          "heading": "Old Town Road",
-          "artist": "Billy Ray Cyrus",
-          "playTime": "3:58"
-        }
-      ]
-    },
-    {
-      "id": "5454852",
-      "playlistName": "Top 100 Songs",
-      "playListImg": "https://via.placeholder.com/200",
-      "songs": [
-        {
-          "heading": "Ur mom",
-          "artist": "Ur dad",
-          "playTime": "2:00"
-        },
-        {
-          "heading": "Old Town Road",
-          "artist": "Billy Ray Cyrus",
-          "playTime": "3:58"
-        },
-        {
-          "heading": "Old Town Road",
-          "artist": "Billy Ray Cyrus",
-          "playTime": "3:58"
-        }
-      ]
-    }
-    
-  ]
+  var tokenState = useState(null);
   return (
-    <>
-    <Router>
-      <Featured path="/"/>
-      <Player path="/player"
-      heading="Hej med dig"
-      artist="Hej med dig 2"
-      artistImg="https://via.placeholder.com/300"
-      songSrc= "./testSong.flac"
-      bgImg="https://via.placeholder.com/400x800"
-      songDuration="3:50"
-      />
-      <Categories path="/find"/>
-    </Router>
-    <Navigation/>
-    </>
+    <TokenContext.Provider value={tokenState}>
+      <Router>
+        <Login default />
+        <Callback path="/callback" />
+        <Featured path="/featured" />
+        <Categories path ="/find" />
+      </Router>
+      <Navigation/>
+    </TokenContext.Provider>
   );
 }
 
