@@ -22,10 +22,10 @@ function Featured () {
     console.log(content)
     return (
         <>
-        <SecondaryNavigation
-        heading="Featured"
-        />
         <header className ="featuredHeader">
+            <SecondaryNavigation
+            heading="Featured"
+            />
             <PageHeading>Featured</PageHeading>
         </header>
         <section className="featuredMain">

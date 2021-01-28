@@ -1,0 +1,38 @@
+.song {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.songDesc {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.songHeading {
+    font-size: 15px;
+    font-weight: bold;
+    color: #341931;
+    margin-bottom: 5px;
+}
+.songArtist {
+    font-weight: 300;
+    font-size: 12px;
+    color: #341931;
+}
+.songPlayTime {
+    font-weight: 300;
+    font-size: 12px;
+    color: #341931;
+}
+
+.song i {
+    font-size: 12px;
+    color: white;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(to right, #EE0979, #FF6A00);
+}

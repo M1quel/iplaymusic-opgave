@@ -26,10 +26,10 @@ function Categories () {
 
     return (
         <>
-        <SecondaryNavigation 
-        heading="Categories"
-        /> 
         <header className="categoriesHeader">
+            <SecondaryNavigation 
+            heading="Categories"
+            /> 
             <PageHeading>Categories</PageHeading>
         </header>
 

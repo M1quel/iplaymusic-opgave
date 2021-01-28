@@ -14,9 +14,10 @@ function SecondaryNavigation (props) {
     }
     return (
         <nav className="secondaryNavigation">
-            <Link style={ arrowStyling } to="/featured">
+
+            <button style={ arrowStyling } onClick={() => window.history.back()} className="secondaryNavigationBackBtn">
                 <i className="fas fa-chevron-left"></i>
-            </Link>
+            </button>
             <div className="secondaryNavigationHeadingWrapper">
                 <h1 className="secondaryNavigationHeading">{ props.heading }</h1>
             </div>
