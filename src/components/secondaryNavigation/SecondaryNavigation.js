@@ -14,7 +14,7 @@ function SecondaryNavigation (props) {
     }
     return (
         <nav className="secondaryNavigation">
-            <Link style={ arrowStyling } to="/">
+            <Link style={ arrowStyling } to="/featured">
                 <i className="fas fa-chevron-left"></i>
             </Link>
             <div className="secondaryNavigationHeadingWrapper">
