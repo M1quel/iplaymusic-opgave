@@ -7,19 +7,31 @@
 .newReleaseAlbumDesc {
     flex-grow: 1;
     margin-left: 20px;
+    overflow: hidden;
 }
 
 .newReleaseAlbumHeading {
     font-size: 15px;
     margin-bottom: 7px;
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+    -webkit-box-orient: vertical;
 }
 .newReleaseAlbumArtist{
     font-size: 12px;
     font-weight: lighter;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+    -webkit-box-orient: vertical;
 }
 
 .newReleaseAlbumSongNum {
     font-size: 12px;
     font-weight: lighter;
+    flex-shrink: 0;
 }

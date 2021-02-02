@@ -1,9 +1,10 @@
 import "./NewReleaseAlbum.css";
+import { Link } from "@reach/router";
 
 function NewReleaseAlbum (props) {
 
     return (
-        <article className="newReleaseAlbum">
+        <Link to={"/albumDetails/" + props.id} className="newReleaseAlbum">
             <img src={ props.img } alt=""/>
             <div className="newReleaseAlbumDesc">
                 <h1 className="newReleaseAlbumHeading">{ props.heading }</h1>
@@ -12,7 +13,7 @@ function NewReleaseAlbum (props) {
 
             <p className="newReleaseAlbumSongNum">{ props.songNum } Songs</p>
 
-        </article>
+        </Link>
     )
 }
 
