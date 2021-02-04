@@ -1,0 +1,38 @@
+body.darkmode .primaryNavigation {
+    background-color: black;
+}
+
+body.darkmode .secondaryNavigationHeading {
+    color: #ffffff;
+}
+body.darkmode .secondaryNavigationBackBtn i {
+    color: #ffffff;
+}
+body.darkmode .secondaryNavigationSearch i {
+    color: #ffffff;
+}
+
+/* albums page */
+body.darkmode  {
+    background-color: rgb(36, 16, 16);
+}
+
+body.darkmode .featuredAlbumsHeading {
+    color: #ffffff;
+}
+
+body.darkmode .newAlbumsHeading {
+    color: #ffffff;
+}
+
+body.darkmode .newReleaseAlbumHeading {
+    color: white;
+}
+
+body.darkmode .newReleaseAlbumArtist{
+    color: white;
+}
+
+body.darkmode .newReleaseAlbumSongNum {
+    color: #ffffff;
+}

@@ -42,6 +42,24 @@ function PlayLists (props) {
         }
     }, [token, setContent]);
 
+    function buildLink (content, num) {
+        if(content.id) {
+            return (content.id)
+        }
+        else if (content.items?.[num]?.id) {
+            return (content.items?.[num]?.id)
+        }
+    }
+    function buildSrc (content, num) {
+        console.log("Hej med dig")
+        if(content.images?.[num]?.url) {
+            return (content.images?.[0]?.url)
+        }
+        else if (content.items?.[num]?.images?.[0]?.url) {
+            return (content.items?.[num]?.images?.[0]?.url)
+        }
+    }
+
 
     
     return (
@@ -56,8 +74,8 @@ function PlayLists (props) {
         <div className="playlistsMain">
             <div className="carousel">
                 <img className="prevPlaylistImg" src="https://via.placeholder.com/200" alt="prevPlaylist"/>
-                <Link to={"/user/" + {content.id ? content.id : content.items?.[0]}><img className="currentPlaylistImg" src={props.id ? content?.images?.[0].url : content?.items?.[0]?.images[0]?.url} alt="currentPlaylist"/></Link>
-                <img className="nextPlaylistImg" src="" alt="nextPlaylist"/>
+                <Link to={"/user/" + buildLink(content, 0)}><img className="currentPlaylistImg" src={buildSrc(content, 0)} alt="currentPlaylist"/></Link>
+                <img className="nextPlaylistImg" src={buildSrc(content, 1)} alt="nextPlaylist"/>
 
             </div>
             <h1 className="currentPlaylistHeading"></h1>

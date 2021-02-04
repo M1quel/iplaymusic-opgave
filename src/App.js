@@ -14,6 +14,7 @@ import Callback from "./pages/Callback/Callback";
 import './App.css';
 import TokenContext from "./TokenContext";
 import { useState } from "react";
+import "./darkmode.css";
 
 function App() {
   var tokenState = useState(null);
