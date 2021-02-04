@@ -1,15 +1,67 @@
 import SecondaryNavigation from "../../components/secondaryNavigation/SecondaryNavigation";
 import Song from "../../components/Song/Song";
 import "./Playlists.css";
-import { Link } from "@reach/router"
+import { Link, navigate } from "@reach/router"
+import { useContext, useEffect, useState } from "react";
+import TokenContext from "../../TokenContext";
+import axios from "axios";
 
-function PlayLists ({ playlists }) {
-    var currentID = 0
-    var prevPlaylist;
-    var currentPlaylist = playlists[currentID];
-    var nextPlaylist = playlists[currentID + 1];
-    var playlistSongs = playlists[currentID].songs;
+function PlayLists (props) {
+    var [token] = useContext(TokenContext);
+    var [content, setContent] = useState({});
+    useEffect(function() {
+        if(props.id) {
+            var fetchLink = "https://api.spotify.com/v1/playlists/" + props.id;
+            console.log(fetchLink)
+            axios.get(fetchLink, {
+                headers: {
+                    "Authorization": "Bearer " + token.access_token
+                }
+            })
+            .then(response => {
+                setContent(response.data)
+                console.log(response.data)
+            })
+            .catch(function (error) {
+                if(error) {
+                    return;
+                }
+            });
+        } else {
+            var fetchLink = "https://api.spotify.com/v1/me/playlists";
+            console.log(fetchLink)
+            axios.get(fetchLink, {
+                headers: {
+                    "Authorization": "Bearer " + token.access_token
+                }
+            })
+            .then(response => {
+                setContent(response.data)
+                console.log(response.data)
+            })
+        }
+    }, [token, setContent]);
 
+    function buildLink (content, num) {
+        if(content.id) {
+            return (content.id)
+        }
+        else if (content.items?.[num]?.id) {
+            return (content.items?.[num]?.id)
+        }
+    }
+    function buildSrc (content, num) {
+        console.log("Hej med dig")
+        if(content.images?.[num]?.url) {
+            return (content.images?.[0]?.url)
+        }
+        else if (content.items?.[num]?.images?.[0]?.url) {
+            return (content.items?.[num]?.images?.[0]?.url)
+        }
+    }
+
+
+    
     return (
         <>
         <header className="playlistsHeader">
@@ -22,21 +74,20 @@ function PlayLists ({ playlists }) {
         <div className="playlistsMain">
             <div className="carousel">
                 <img className="prevPlaylistImg" src="https://via.placeholder.com/200" alt="prevPlaylist"/>
-                <img className="currentPlaylistImg" src={ currentPlaylist.playListImg } alt="currentPlaylist"/>
-                <img className="nextPlaylistImg" src={ nextPlaylist.playListImg } alt="nextPlaylist"/>
+                <Link to={"/user/" + buildLink(content, 0)}><img className="currentPlaylistImg" src={buildSrc(content, 0)} alt="currentPlaylist"/></Link>
+                <img className="nextPlaylistImg" src={buildSrc(content, 1)} alt="nextPlaylist"/>
 
             </div>
-            <h1 className="currentPlaylistHeading">{ currentPlaylist.playlistName }</h1>
+            <h1 className="currentPlaylistHeading"></h1>
             <div className="playlistSongWrapper">
-                {playlistSongs.map(function(song) {
-                    return (
-                        <Song
-                        heading= {song.heading}
-                        artist= {song.artist}
-                        playTime= {song.playTime}
-                        />
-                    )
+                {content.tracks?.items.map(function(song, index) {
+                    return (<Song key ={index}
+                        heading= {song.track?.name}
+                        artist= {song.track?.artists?.[0]?.name}
+                        playTime= {song.track?.duration_ms}
+                    />)
                 })}
+                
                 <Link className="playlistListenAll" to="/"> Listen All</Link>
             </div>
         </div>

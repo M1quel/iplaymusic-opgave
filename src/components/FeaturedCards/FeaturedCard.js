@@ -1,3 +1,4 @@
+import { Link } from "@reach/router";
 import "./FeaturedCard.css";
 
 function FeaturedCard (props) {
@@ -8,13 +9,13 @@ function FeaturedCard (props) {
     }
 
     return (
-        <article style={ featuredCardBgimage } className="featuredCard">
+        <Link to={"/playlists/" + props.href} style={ featuredCardBgimage } className="featuredCard">
             <div>
                 <h1 className="featuredCardHeading">{ props.heading }</h1>
                 <p className="featuredCardDesc">{ props.desc }</p>
             </div>
             <div className="featuredCardFade"></div>
-        </article>
+        </Link>
     )
 }
 

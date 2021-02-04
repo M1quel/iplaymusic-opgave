@@ -2,6 +2,7 @@ import "./Category.css";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import TokenContext from "../../TokenContext";
+import { Link } from "@reach/router"
 function Category (props) {
     
     var [token] = useContext(TokenContext);
@@ -26,8 +27,6 @@ function Category (props) {
     
     
     
-    
-    
     var labelStyling = {
         "backgroundColor": props.bgcolor
     }
@@ -44,11 +43,10 @@ function Category (props) {
                 </div>
             </label>
             <ul className="underCatList">
-                {content.playlists && content.playlists.items.map(function(category, index) {
-                    console.log(category)
+                {content.playlists?.items.map(function(category, index) {
 				    return (
                         <li className="underCat" key={index}>
-                            <Link to="/">
+                            <Link type="playlists" to={"/albumDetails/" + "playlists/" + category.id}>
                                 <p>{category.name}</p>
                                 <i className="fas fa-chevron-right"></i>
                             </Link>

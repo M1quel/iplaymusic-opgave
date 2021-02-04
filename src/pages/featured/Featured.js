@@ -34,6 +34,7 @@ function Featured () {
                 heading = {playlist.name}
                 desc = {playlist.type}
                 img = {playlist.images[0].url}
+                href={playlist.id}
                 
                 />)
             })}

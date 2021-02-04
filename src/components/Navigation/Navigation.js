@@ -5,19 +5,21 @@ import { Link } from "@reach/router";
 function Navigation () {
     return (
         <nav className="primaryNavigation">
-            <Link to="/featured">
-                <img src="./MusicFeedIcon.png" alt="Feed"/>
+            <Link to="/albums">
+                <i class="fas fa-th-large navigationIcon"></i>
             </Link>
 
-            <Link to="/find">
-                <img src="./MusicFindIcon.png" alt="Find"/>
+            <Link to="/categories">
+                <i class="fas fa-bars navigationIcon"></i>
             </Link>
-            <Link to="/player">
-                <img src="./musicPlayerIcon.png" alt="Player"/>
+            <Link to="/featured" class="feedicon">
+            <span class="material-icons">
+                wifi_tethering
+            </span>
             </Link>
-            <img src="./nightModeIcon.png" alt="NightDayMode"/>
-            <Link to="/settings">
-                <img src="./SettingsIcon.png" alt="Settings"/>
+            <i class="fas fa-adjust navigationIcon"></i>
+            <Link to="/user">
+                <i class="fas fa-cog navigationIcon"></i>
             </Link>
         </nav>
     );
