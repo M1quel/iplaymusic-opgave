@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "netlify dev -f .netlify/functions",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp _redirects build/_redirects",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
