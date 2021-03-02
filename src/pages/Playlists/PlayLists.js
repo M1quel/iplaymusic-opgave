@@ -5,8 +5,11 @@ import { Link, navigate } from "@reach/router"
 import { useContext, useEffect, useState } from "react";
 import TokenContext from "../../TokenContext";
 import axios from "axios";
+import ErrorBoundary from "../../components/ErrorBoundary";
+import * as Sentry from "@sentry/react";
 
 function PlayLists (props) {
+    
     var [token] = useContext(TokenContext);
     var [content, setContent] = useState({});
     useEffect(function() {
@@ -59,7 +62,7 @@ function PlayLists (props) {
             return (content.items?.[num]?.images?.[0]?.url)
         }
     }
-
+    
 
     
     return (
@@ -79,7 +82,9 @@ function PlayLists (props) {
 
             </div>
             <h1 className="currentPlaylistHeading"></h1>
+            <Sentry.ErrorBoundary fallback={"Playlist can't be acquired"}>
             <div className="playlistSongWrapper">
+                
                 {content.tracks?.items.map(function(song, index) {
                     return (<Song key ={index}
                         heading= {song.track?.name}
@@ -90,6 +95,7 @@ function PlayLists (props) {
                 
                 <Link className="playlistListenAll" to="/"> Listen All</Link>
             </div>
+            </Sentry.ErrorBoundary>
         </div>
         </>
     )
