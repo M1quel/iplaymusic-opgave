@@ -1,11 +1,12 @@
 import querystring from "querystring";
 
 export default function Login() {
+	console.log(process.env.REDIRECT_URI)
 	var queryParameters = querystring.stringify({
 		response_type: "code",
 		client_id: "7aca295d15c84a2cbef0d18dbc5246e9",
 		scope: "user-read-private user-read-email playlist-read-private user-library-read",
-		redirect_uri: "http://localhost:8888/callback",
+		redirect_uri: "https://iplaymusic-mf11.netlify.app/callback",
 		state: "vdjldfglfdlgrpoiaer9garlogihlgkzhdrlgishlro8tubzpdortuzorihglzdoighlzoirhtlzo8ghldhglzdghlzdoigh"
 	});
 
