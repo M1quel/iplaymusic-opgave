@@ -57,7 +57,7 @@ function Albums() {
             </header>
             {content.albums?.items.map(function(album, index) {
               if(index >= 7) {
-                return;
+                return null;
               } else {
                 return (
                   <NewReleaseAlbum

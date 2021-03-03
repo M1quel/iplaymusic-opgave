@@ -44,9 +44,10 @@ function Category (props) {
             </label>
             <ul className="underCatList">
                 {content.playlists?.items.map(function(category, index) {
+                    let linkTo = "/albumDetails/" + "playlists/" + category.id
 				    return (
                         <li className="underCat" key={index}>
-                            <Link type="playlists" to={"/albumDetails/" + "playlists/" + category.id}>
+                            <Link type="playlists" to={linkTo}>
                                 <p>{category.name}</p>
                                 <i className="fas fa-chevron-right"></i>
                             </Link>

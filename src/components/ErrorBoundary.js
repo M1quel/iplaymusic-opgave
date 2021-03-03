@@ -1,6 +1,5 @@
 // import { Link, Redirect } from "@reach/router";
 import React from "react";
-import Axios from "axios";
 import axios from "axios";
 class ErrorBoundary extends React.Component {
     constructor(props) {

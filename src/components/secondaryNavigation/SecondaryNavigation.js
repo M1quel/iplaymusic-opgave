@@ -1,4 +1,3 @@
-import { Link } from "@reach/router";
 import "./SecondaryNavigation.css"
 
 function SecondaryNavigation (props) {
