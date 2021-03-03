@@ -42,7 +42,7 @@ function PlayLists (props) {
                 console.log(response.data)
             })
         }
-    }, [token, setContent]);
+    }, [props, token, setContent]);
 
     function buildLink (content, num) {
         if(content.id) {
