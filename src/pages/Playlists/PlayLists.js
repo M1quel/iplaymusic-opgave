@@ -1,11 +1,10 @@
 import SecondaryNavigation from "../../components/secondaryNavigation/SecondaryNavigation";
 import Song from "../../components/Song/Song";
 import "./Playlists.css";
-import { Link, navigate } from "@reach/router"
+import { Link } from "@reach/router"
 import { useContext, useEffect, useState } from "react";
 import TokenContext from "../../TokenContext";
 import axios from "axios";
-import ErrorBoundary from "../../components/ErrorBoundary";
 import * as Sentry from "@sentry/react";
 
 function PlayLists (props) {
@@ -13,9 +12,9 @@ function PlayLists (props) {
     var [token] = useContext(TokenContext);
     var [content, setContent] = useState({});
     useEffect(function() {
+        var fetchLink;
         if(props.id) {
-            var fetchLink = "https://api.spotify.com/v1/playlists/" + props.id;
-            console.log(fetchLink)
+            fetchLink = "https://api.spotify.com/v1/playlists/" + props.id;
             axios.get(fetchLink, {
                 headers: {
                     "Authorization": "Bearer " + token.access_token
@@ -31,7 +30,7 @@ function PlayLists (props) {
                 }
             });
         } else {
-            var fetchLink = "https://api.spotify.com/v1/me/playlists";
+            fetchLink = "https://api.spotify.com/v1/me/playlists";
             console.log(fetchLink)
             axios.get(fetchLink, {
                 headers: {
@@ -81,7 +80,7 @@ function PlayLists (props) {
                 <img className="nextPlaylistImg" src={buildSrc(content, 1)} alt="nextPlaylist"/>
 
             </div>
-            <h1 className="currentPlaylistHeading"></h1>
+            <h1 className="currentPlaylistHeading">heading</h1>
             <Sentry.ErrorBoundary fallback={"Playlist can't be acquired"}>
             <div className="playlistSongWrapper">
                 
