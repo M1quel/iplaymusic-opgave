@@ -24,6 +24,7 @@ function AlbumDetails(props) {
 			}
 		})
 		.then(response => setContent(response.data));
+
 	}, [props, token, setContent]);
     
     function test(song) {

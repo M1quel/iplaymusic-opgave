@@ -31,7 +31,6 @@ function PlayLists (props) {
             });
         } else {
             fetchLink = "https://api.spotify.com/v1/me/playlists";
-            console.log(fetchLink)
             axios.get(fetchLink, {
                 headers: {
                     "Authorization": "Bearer " + token.access_token
@@ -80,7 +79,7 @@ function PlayLists (props) {
                 <img className="nextPlaylistImg" src={buildSrc(content, 1)} alt="nextPlaylist"/>
 
             </div>
-            <h1 className="currentPlaylistHeading">heading</h1>
+            <h1 className="currentPlaylistHeading">Heading</h1>
             <Sentry.ErrorBoundary fallback={"Playlist can't be acquired"}>
             <div className="playlistSongWrapper">
                 
