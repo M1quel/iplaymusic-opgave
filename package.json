@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "husky": "^5.0.9",
     "netlify-cli": "^3.4.3"
   }
 }
