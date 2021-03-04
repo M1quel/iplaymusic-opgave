@@ -5,15 +5,16 @@ import { Link } from "@reach/router"
 import { useContext, useEffect, useState } from "react";
 import TokenContext from "../../TokenContext";
 import axios from "axios";
+import * as Sentry from "@sentry/react";
 
 function PlayLists (props) {
+    
     var [token] = useContext(TokenContext);
     var [content, setContent] = useState({});
     useEffect(function() {
         var fetchLink;
         if(props.id) {
             fetchLink = "https://api.spotify.com/v1/playlists/" + props.id;
-            console.log(fetchLink)
             axios.get(fetchLink, {
                 headers: {
                     "Authorization": "Bearer " + token.access_token
@@ -40,7 +41,7 @@ function PlayLists (props) {
                 console.log(response.data)
             })
         }
-    }, [token, setContent, props]);
+    }, [props, token, setContent]);
 
     function buildLink (content, num) {
         if(content.id) {
@@ -59,7 +60,7 @@ function PlayLists (props) {
             return (content.items?.[num]?.images?.[0]?.url)
         }
     }
-
+    
 
     
     return (
@@ -79,7 +80,9 @@ function PlayLists (props) {
 
             </div>
             <h1 className="currentPlaylistHeading">Heading</h1>
+            <Sentry.ErrorBoundary fallback={"Playlist can't be acquired"}>
             <div className="playlistSongWrapper">
+                
                 {content.tracks?.items.map(function(song, index) {
                     return (<Song key ={index}
                         heading= {song.track?.name}
@@ -90,6 +93,7 @@ function PlayLists (props) {
                 
                 <Link className="playlistListenAll" to="/"> Listen All</Link>
             </div>
+            </Sentry.ErrorBoundary>
         </div>
         </>
     )

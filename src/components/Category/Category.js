@@ -23,7 +23,7 @@ function Category (props) {
                 return;
             }
         });
-    }, [token, setContent, props]);
+    }, [props, token, setContent]);
     
     
     
@@ -47,6 +47,7 @@ function Category (props) {
 				    return (
                         <li className="underCat" key={index}>
                             <Link type="playlists" to={"/albumDetails/playlists/" + category.id}>
+
                                 <p>{category.name}</p>
                                 <i className="fas fa-chevron-right"></i>
                             </Link>
