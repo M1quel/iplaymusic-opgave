@@ -36,3 +36,26 @@ body.darkmode .newReleaseAlbumArtist{
 body.darkmode .newReleaseAlbumSongNum {
     color: #ffffff;
 }
+
+
+/* category page */
+body.darkmode .underCat p {
+    color: #ffffff;
+}
+body.darkmode .underCat i {
+    color: #ffffff;
+}
+
+
+/* playlist page */
+body.darkmode .songHeading {
+    color: #ffffff;
+}
+
+body.darkmode .songArtist {
+    color: #ffffff;
+}
+
+body.darkmode .songPlayTime {
+    color: #ffffff;
+}

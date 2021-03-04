@@ -6,12 +6,13 @@ import { useContext, useEffect, useState } from "react";
 import TokenContext from "../../TokenContext";
 
 function AlbumDetails(props) {
+    
     var [token] = useContext(TokenContext);
     var [content, setContent] = useState({});
     
 
 	useEffect(function() {
-        var fetchLink
+        var fetchLink;
         if(props.type === "playlists") {
             fetchLink = "https://api.spotify.com/v1/playlists/" + props.id
         } else {
@@ -23,7 +24,8 @@ function AlbumDetails(props) {
 			}
 		})
 		.then(response => setContent(response.data));
-	}, [token, setContent, props]);
+
+	}, [props, token, setContent]);
     
     function test(song) {
         return song.artists?.map(function(artist, index) {
