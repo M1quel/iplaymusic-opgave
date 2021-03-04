@@ -8,20 +8,22 @@ import TokenContext from "../../TokenContext";
 function AlbumDetails(props) {
     var [token] = useContext(TokenContext);
     var [content, setContent] = useState({});
-    if(props.type == "playlists") {
-        var fetchLink = "https://api.spotify.com/v1/playlists/" + props.id
-    } else {
-        var fetchLink = "https://api.spotify.com/v1/albums/" + props.id
-    }
+    
 
 	useEffect(function() {
+        var fetchLink
+        if(props.type === "playlists") {
+            fetchLink = "https://api.spotify.com/v1/playlists/" + props.id
+        } else {
+            fetchLink = "https://api.spotify.com/v1/albums/" + props.id
+        }
         axios.get(fetchLink, {
 			headers: {
 				"Authorization": "Bearer " + token.access_token
 			}
 		})
 		.then(response => setContent(response.data));
-	}, [token, setContent]);
+	}, [token, setContent, props]);
     
     function test(song) {
         return song.artists?.map(function(artist, index) {

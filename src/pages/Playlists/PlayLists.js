@@ -1,7 +1,7 @@
 import SecondaryNavigation from "../../components/secondaryNavigation/SecondaryNavigation";
 import Song from "../../components/Song/Song";
 import "./Playlists.css";
-import { Link, navigate } from "@reach/router"
+import { Link } from "@reach/router"
 import { useContext, useEffect, useState } from "react";
 import TokenContext from "../../TokenContext";
 import axios from "axios";
@@ -10,8 +10,9 @@ function PlayLists (props) {
     var [token] = useContext(TokenContext);
     var [content, setContent] = useState({});
     useEffect(function() {
+        var fetchLink;
         if(props.id) {
-            var fetchLink = "https://api.spotify.com/v1/playlists/" + props.id;
+            fetchLink = "https://api.spotify.com/v1/playlists/" + props.id;
             console.log(fetchLink)
             axios.get(fetchLink, {
                 headers: {
@@ -28,8 +29,7 @@ function PlayLists (props) {
                 }
             });
         } else {
-            var fetchLink = "https://api.spotify.com/v1/me/playlists";
-            console.log(fetchLink)
+            fetchLink = "https://api.spotify.com/v1/me/playlists";
             axios.get(fetchLink, {
                 headers: {
                     "Authorization": "Bearer " + token.access_token
@@ -40,7 +40,7 @@ function PlayLists (props) {
                 console.log(response.data)
             })
         }
-    }, [token, setContent]);
+    }, [token, setContent, props]);
 
     function buildLink (content, num) {
         if(content.id) {
@@ -78,7 +78,7 @@ function PlayLists (props) {
                 <img className="nextPlaylistImg" src={buildSrc(content, 1)} alt="nextPlaylist"/>
 
             </div>
-            <h1 className="currentPlaylistHeading"></h1>
+            <h1 className="currentPlaylistHeading">Heading</h1>
             <div className="playlistSongWrapper">
                 {content.tracks?.items.map(function(song, index) {
                     return (<Song key ={index}
